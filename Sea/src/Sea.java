@@ -34,6 +34,7 @@ class MyPanel extends JPanel {
 	MyPanel(){				
 		addMouseMotionListener( new MyMouse());
 		addMouseListener( new MyMouse());
+		System.out.println("№2 перезаписал");
 	}
 	
 	public void paintComponent(Graphics g){
