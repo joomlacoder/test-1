@@ -86,11 +86,12 @@ class MyPanel extends JPanel {
 * Created by Andrej on 15.02.2016.
 */
  class Player {
-   	private int clickCount, energy, lvl;
+   	private int clickCount, energy, maxEnergy, tmpEnergy, lvl;
 	private Collection<Power> powers;
 
 	public void update(){
-		energy++;//переделать под формулу
+		if(energy < maxEnergy)//добавить таймер на 1 раз в секунду
+			energy = energy + tmpEnergy*lvl;
 	}
 
    public int getClickCount(){
@@ -98,8 +99,12 @@ class MyPanel extends JPanel {
    }
 
    public boolean click(){
-       clickCount++;
-       return true;
+	   	if(energy > 0) { // Добавить проверку на используемое средство
+			clickCount++;
+			energy--;
+			return true;
+		}
+	   return false;
    }
 
 }
