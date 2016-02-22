@@ -2,8 +2,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
 import java.net.*;
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.*;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -14,7 +13,7 @@ public class Sea {
 	public static void main(String[] args) throws ClassNotFoundException, IOException{		
 		MyFrame frame = new MyFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setTitle("Море");			
+		frame.setTitle("пїЅпїЅпїЅпїЅ");			
 		frame.show();
 }}
 class MyFrame extends JFrame {	
@@ -30,21 +29,21 @@ class MyPanel extends JPanel {
 	Draw draw = new Draw();
 	Player player = new Player();
 	Rectangle key=new Rectangle(500,50,220,35);
-	int x,y;//курсор
+	int x,y;//пїЅпїЅпїЅпїЅпїЅпїЅ
 	MyPanel(){				
 		addMouseMotionListener( new MyMouse());
 		addMouseListener( new MyMouse());
-		System.out.println("№2 перезаписал");
+		System.out.println("пїЅ2 пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ");
 	}
 	
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
 		setBackground(new Color(120,220,255));
-		//курсор
+		//пїЅпїЅпїЅпїЅпїЅпїЅ
 		//g.fillOval(x, y, 10, 10);//
-		//кнопка
+		//пїЅпїЅпїЅпїЅпїЅпїЅ
 		g.drawRoundRect(500,50,220,35,10,10);
-		g.drawString("Количество нажатий: "+player.getClickCount(), 540, 70);
+		g.drawString("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ: "+player.getClickCount(), 540, 70);
 		
 	}
 	public class MyMouse extends MouseAdapter implements MouseMotionListener{				  				
@@ -87,7 +86,12 @@ class MyPanel extends JPanel {
 * Created by Andrej on 15.02.2016.
 */
  class Player {
-   private int clickCount;
+   	private int clickCount, energy, lvl;
+	private Collection<Power> powers;
+
+	public void update(){
+		energy++;//РїРµСЂРµРґРµР»Р°С‚СЊ РїРѕРґ С„РѕСЂРјСѓР»Сѓ
+	}
 
    public int getClickCount(){
        return clickCount;
